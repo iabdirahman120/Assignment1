@@ -81,6 +81,7 @@ public class Transaction {
     public void setPricePerShare(double pricePerShare) {
         this.pricePerShare = pricePerShare;
     }
+    //hej
 
     public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;

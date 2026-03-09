@@ -1,0 +1,31 @@
+package shared.logging;
+
+
+public class Logger {
+
+    private static volatile Logger instance;
+    private LogOutput output;
+
+    private Logger() {
+        this.output = new ConsoleLogOutput();
+    }
+
+    public static Logger getInstance() {
+        if (instance == null) {
+            synchronized (Logger.class) {
+                if (instance == null) {
+                    instance = new Logger();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public void setOutput(LogOutput output) {
+        this.output = output;
+    }
+
+    public void log(String level, String message) {
+        output.log(level, message);
+    }
+}
